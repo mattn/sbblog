@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="/css/style.css" media="all" />
+<title th:text="${@environment.getProperty('settings.blog.title')}">SBBlog</title>
+</head>
+<body>
+  <h1 th:text="${@environment.getProperty('settings.blog.title')}">SBBlog</h1>
+  <div id="content">
+    <form action="#" th:object="${entryForm}" method="post">
+    <label for="title">Title</label><br />
+    <input type="text" id="title" name="title" th:value="${entryForm.title}" /><br />
+    <span th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}">Error</span><br />
+    <label for="body">Body</label><br />
+    <textarea id="body" name="body" th:text="${entryForm.body}"></textarea><br />
+    <span th:if="${#fields.hasErrors('body')}" class="text-danger" th:errors="*{body}">Error</span><br />
+    <input type="submit" /><br />
+    </form>
+  </div>
+</body>
+</html>

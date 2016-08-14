@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="/css/style.css" media="all" />
+<title th:text="${@environment.getProperty('settings.blog.title')}">SBBlog</title>
+</head>
+<body>
+  <h1 th:text="${@environment.getProperty('settings.blog.title')}">SBBlog</h1>
+  <div id="content">
+    <div class="entry" th:each="entry:${entries}">
+      <h3><a th:href="(${entry.id})" th:text="${entry.title}">xxx</a></h3>
+      <div th:utext="${entry.body}">xxx</div>
+    </div>
+    <a th:class="${ph.pageNumber > 0 ? 'link-enabled' : 'link-disabled'}" th:href="@{/(page=${ph.pageNumber-1})}">prev</a>
+    <a th:href="@{/(page=${ph.pageNumber+1})}">next</a>
+  </div>
+</body>
+</html>

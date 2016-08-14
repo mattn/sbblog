@@ -1,0 +1,35 @@
+#content {
+  width: 100%;
+  padding: 1em;
+}
+.entry h3 {
+  margin-top: 0px;
+}
+.entry {
+  padding: 0.5em;
+}
+.text-danger {
+  color: red;
+}
+.list {
+  border-collapse: collapse;
+}
+.list th {
+  padding: 6px;
+  text-align: left;
+  vertical-align: top;
+  color: #333;
+  background-color: #eee;
+  border: 1px solid #b9b9b9;
+}
+.list td {
+  padding: 6px;
+  background-color: #fff;
+  border: 1px solid #b9b9b9;
+}
+.link-disabled {
+  color: gray;
+  text-decoration: none;
+  pointer-events: none;
+  cursor: default;
+}
