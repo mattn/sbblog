@@ -61,7 +61,7 @@ public class EntriesController {
 			return "redirect:/";
 		}
 		model.addAttribute("entryForm", entryForm);
-		model.addAttribute("message", "入力エラーがあります:" + result.getFieldErrors().get(0).getDefaultMessage());
+		model.addAttribute("message", "Error:" + result.getFieldErrors().get(0).getDefaultMessage());
 		return "edit";
 	}
 	
@@ -72,7 +72,7 @@ public class EntriesController {
 			return "redirect:/";
 		}
 		model.addAttribute("entries", entriesRepository.findAll());
-		model.addAttribute("message", "入力エラーがあります:" + result.getFieldErrors().get(0).getDefaultMessage());
+		model.addAttribute("message", "Error:" + result.getFieldErrors().get(0).getDefaultMessage());
 		return "edit";
 	}
 }
