@@ -1,4 +1,4 @@
-package io.github.mattn.spblog;
+package io.github.mattn.sbblog;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
