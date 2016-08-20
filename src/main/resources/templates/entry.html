@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<link rel="stylesheet" href="/css/style.css" media="all" />
-<title th:text="${@environment.getProperty('settings.blog.title')}">SBBlog</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" th:href="@{/css/style.css}" media="all" />
+  <title th:text="${@environment.getProperty('app.title')}">SBBlog</title>
 </head>
 <body>
-  <h1 th:text="${@environment.getProperty('settings.blog.title')}">SBBlog</h1>
-  <div id="content">
-    <div class="entry">
-      <h3><a th:href="(${entry.id})" th:text="${entry.title}">xxx</a></h3>
-      <div th:utext="${entry.body}">xxx</div>
-      <br />
-      <a th:href="@{/{entryId}/edit(entryId=${entry.id})}">edit</a>
-    </div>
+<h1><a th:href="@{/}" th:text="${@environment.getProperty('app.title')}">SBBlog</a></h1>
+<div id="content">
+  <div class="entry">
+    <h2><a th:href="(${entry.id})" th:text="${entry.title}">xxx</a></h2>
+    <div th:utext="${entry.body}">xxx</div>
+    <br />
+    <a th:href="@{/entries/{entryId}/edit(entryId=${entry.id})}">edit</a>
   </div>
+</div>
 </body>
 </html>

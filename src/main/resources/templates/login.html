@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title th:text="${@environment.getProperty('app.title') + ' - ログイン'}">SBBlog - ログイン</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" media="all" />
+</head>
+<body>
+  <h1><a th:href="@{/}" th:text="${@environment.getProperty('app.title')}">SBBlog</a></h1>
+  <div id="content">
+    <form method="post" th:action="@{/login}">
+      <label for="username">Username:</label><br />
+      <input name="username" type="text" /><br/>
+      <label for="password">Password:</label><br />
+      <input name="password" type="password" /><br/>
+      <input type="submit" />
+    </form>
+  </div>
+</body>
+</html>

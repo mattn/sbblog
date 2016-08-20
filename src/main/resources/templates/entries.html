@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<link rel="stylesheet" href="/css/style.css" media="all" />
-<title th:text="${@environment.getProperty('settings.blog.title')}">SBBlog</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" th:href="@{/css/style.css}" media="all" />
+  <title th:text="${@environment.getProperty('app.title')}">SBBlog</title>
 </head>
 <body>
-  <h1 th:text="${@environment.getProperty('settings.blog.title')}">SBBlog</h1>
-  <div id="content">
-    <div class="entry" th:each="entry:${entries}">
-      <h3><a th:href="(${entry.id})" th:text="${entry.title}">xxx</a></h3>
-      <div th:utext="${entry.body}">xxx</div>
-    </div>
-    <a th:class="${ph.pageNumber > 0 ? 'link-enabled' : 'link-disabled'}" th:href="@{/(page=${ph.pageNumber-1})}">prev</a>
-    <a th:href="@{/(page=${ph.pageNumber+1})}">next</a>
+<h1><a th:href="@{/}" th:text="${@environment.getProperty('app.title')}">SBBlog</a></h1>
+<div id="content">
+  <div class="entry" th:each="entry:${entries}">
+    <h2><a th:href="@{/entries/{entryId}(entryId=${entry.id})}" th:text="${entry.title}">xxx</a></h2>
+    <div th:utext="${entry.body}">xxx</div>
+    <p th:text="${entry.createdAt}"></p>
   </div>
+  <a th:class="${ph.pageNumber > 0 ? 'link-enabled' : 'link-disabled'}" th:href="@{/(page=${ph.pageNumber-1},total=${total})}">prev</a>
+  <a th:class="${total > ph.offset ? 'link-enabled' : 'link-disabled'}" th:href="@{/(page=${ph.pageNumber+1},total=${total})}">next</a>
+</div>
 </body>
 </html>

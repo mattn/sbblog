@@ -1,2 +1,5 @@
 db
 target
+.idea
+sbblog.iml
+*.db
