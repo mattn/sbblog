@@ -16,7 +16,7 @@
     <p th:text="${entry.createdAt}"></p>
   </div>
   <a th:class="${ph.pageNumber > 0 ? 'link-enabled' : 'link-disabled'}" th:href="@{/(page=${ph.pageNumber-1},total=${total})}">prev</a>
-  <a th:class="${total > ph.offset ? 'link-enabled' : 'link-disabled'}" th:href="@{/(page=${ph.pageNumber+1},total=${total})}">next</a>
+  <a th:class="${total >=  ph.offset ? 'link-enabled' : 'link-disabled'}" th:href="@{/(page=${ph.pageNumber+1},total=${total})}">next</a>
 </div>
 </body>
 </html>
