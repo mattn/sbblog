@@ -11,6 +11,7 @@ $ mvnw package
 ## Run
 
 ```
+$ java -jar sbblog-0.0.1-SNAPSHOT.jar
 ```
 
 ## License
